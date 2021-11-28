@@ -16,11 +16,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ ubuntu-latest, macOS-latest, windows-latest ]
         include:
           - rust: stable
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v1
         with:
           fetch-depth: 1
@@ -29,10 +29,10 @@ jobs:
         with:
           rust-version: stable
           components: rustfmt,clippy
-      - name: Check Formatting
+      - name: Check formatting
         run: cargo fmt --all -- --check
         continue-on-error: true
-      - name: Clippy Linter
+      - name: Clippy linter
         run: cargo clippy -- --no-deps -D clippy::all
         continue-on-error: true
       - name: Build
