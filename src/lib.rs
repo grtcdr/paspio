@@ -116,11 +116,8 @@ fn get_pool_size(password: &str) -> usize {
 /// # Example
 ///
 /// ```
-/// use paspio::{get_pool_size, get_entropy};
-///
 /// let password = "lasagna";
-/// let pool = get_pool_size(password);
-/// let entropy = get_entropy(pool, password);
+/// let entropy = paspio::get_entropy(password);
 /// assert_eq!(entropy.round(), 33f64);
 /// ```
 pub fn get_entropy(password: &str) -> f64 {
