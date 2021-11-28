@@ -3,7 +3,23 @@
 A (naive) password entropy calculator. It is not intended or designed to be a
 measure of password strength, please refrain from using it as such.
 
-### Building the program
+### Installation
+
+#### crates.io
+
+```
+cargo install paspio
+```
+
+#### AUR
+
+```
+git clone https://aur.archlinux.org/paspio-git.git
+cd paspio-git
+makepkg -si
+```
+
+#### Building from source
 
 ```bash
 git clone https://github.com/grtcdr/paspio
