@@ -44,17 +44,10 @@ pub fn has_uppercase(pw: &str) -> bool {
 pub fn has_symbols(pw: &str) -> bool {
     let lower = pw.chars().find(|&x| {
         let ascii = x as u8;
-        if (32..=47).contains(&ascii) {
-            true
-        } else if (58..=64).contains(&ascii) {
-            true
-        } else if (91..=96).contains(&ascii) {
-            true
-        } else if (123..=126).contains(&ascii) {
-            true
-        } else {
-            false
-        }
+        (32..=47).contains(&ascii)
+        || (58..=64).contains(&ascii)
+        || (91..=96).contains(&ascii)
+        || (123..=126).contains(&ascii)
     });
 
     if lower.is_some() {
@@ -64,26 +57,30 @@ pub fn has_symbols(pw: &str) -> bool {
     false
 }
 
-pub fn calculate_pool(pool: &mut usize, password: &str) {
+pub fn get_pool(password: &str) -> usize {
+    let mut pool = 0;
+
     if has_digits(password) {
-        *pool += 10;
+        pool += 10;
     }
 
     if has_lowercase(password) {
-        *pool += 26;
+        pool += 26;
     }
 
     if has_uppercase(password) {
-        *pool += 26;
+        pool += 26;
     }
 
     if has_symbols(password) {
-        *pool += 33;
+        pool += 33;
     }
+
+    pool
 }
 
-pub fn calculate_entropy(entropy: &mut f64, pool: &usize, password: &str) {
-    *entropy = password.len() as f64 * (*pool as f64).log2();
+pub fn get_entropy(pool: usize, password: &str) -> f64 {
+    password.len() as f64 * (pool as f64).log2()
 }
 
 #[cfg(test)]
@@ -128,52 +125,43 @@ mod tests {
 
     #[test]
     fn test_calculate_pool_with_digits() {
-        let mut pool = 0;
-        calculate_pool(&mut pool, "12983791");
+        let pool = get_pool("12983791");
         assert_eq!(pool, 10);
     }
 
     #[test]
     fn test_calculate_pool_with_upper_lower() {
-        let mut pool = 0;
-        calculate_pool(&mut pool, "Aokeethi");
+        let pool = get_pool("Aokeethi");
         assert_eq!(pool, 52);
     }
 
     #[test]
     fn test_calculate_pool_with_symbols() {
-        let mut pool = 0;
-        calculate_pool(&mut pool, "-_+\\`%{]");
+        let pool = get_pool("-_+\\`%{]");
         assert_eq!(pool, 33);
     }
 
     #[test]
     fn test_calculate_entropy_with_upper_lower() {
-        let mut pool = 0;
-        let mut entropy = 0f64;
         let password = "Cievabad";
-        calculate_pool(&mut pool, password);
-        calculate_entropy(&mut entropy, &pool, password);
+        let pool = get_pool(password);
+        let entropy = get_entropy(pool, password);
         assert_eq!(entropy.round(), 46f64);
     }
 
     #[test]
     fn test_calculate_entropy_with_symbols() {
-        let mut pool = 0;
-        let mut entropy = 0f64;
         let password = "&;`_/`\\@";
-        calculate_pool(&mut pool, password);
-        calculate_entropy(&mut entropy, &pool, password);
+        let pool = get_pool(password);
+        let entropy = get_entropy(pool, password);
         assert_eq!(entropy.round(), 40f64);
     }
 
     #[test]
     fn test_calculate_entropy_with_digits() {
-        let mut pool = 0;
-        let mut entropy = 0f64;
         let password = "02172341";
-        calculate_pool(&mut pool, password);
-        calculate_entropy(&mut entropy, &pool, password);
+        let pool = get_pool(password);
+        let entropy = get_entropy(pool, password);
         assert_eq!(entropy.round(), 27f64);
     }
 }

@@ -5,18 +5,15 @@ fn main() {
     if args.len() > 1 {
         let password = &args[1];
         if password.is_empty() {
-            println!("No password provided.");
+            print!("No password provided.");
             return;
         }
 
-        let mut pool = 0;
-        let mut entropy = 0f64;
+        let pool = core::get_pool(password);
+        let entropy = core::get_entropy(pool, password);
 
-        core::calculate_pool(&mut pool, password);
-        core::calculate_entropy(&mut entropy, &pool, password);
-
-        println!("Entropy: {:.2} bits", entropy);
+        print!("Entropy: {:.2} bits", entropy);
     } else {
-        println!("No password provided.");
+        print!("No password provided.");
     }
 }
