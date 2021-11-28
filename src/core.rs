@@ -90,37 +90,25 @@ mod tests {
     #[test]
     fn test_has_symbols() {
         assert_eq!(has_symbols("JGA7Y#ELWX,8$QB3"), true);
-        assert_eq!(has_symbols("uVR,8EX2^_F95j?M"), true);
-        assert_eq!(has_symbols("GODzi[wCnw4{of]\\"), true);
-        assert_eq!(has_symbols("yj<qNo9hu=\"<<c3`"), true);
-        assert_eq!(has_symbols("u=x@;qLZ\\m)RY-7d"), true);
+        assert_eq!(has_symbols("uVR28EX2caF95jjM"), false);
     }
 
     #[test]
     fn test_has_uppercase() {
         assert_eq!(has_uppercase(".xNDoUKZM2X\"M.tJ"), true);
-        assert_eq!(has_uppercase("{w:cN8t79lSLkB|O"), true);
-        assert_eq!(has_uppercase("_N{L*%u_r%<4'+fb"), true);
-        assert_eq!(has_uppercase("XVf}mos,tt03|!n="), true);
-        assert_eq!(has_uppercase("ba8@j#!h|C)Ccr}4"), true);
+        assert_eq!(has_uppercase("{w:cn8t79lslkb|0"), false);
     }
 
     #[test]
     fn test_has_lowercase() {
         assert_eq!(has_lowercase("baeAKaaWeshAjoje"), true);
-        assert_eq!(has_lowercase("aechoWmeeyuXeeHb"), true);
-        assert_eq!(has_lowercase("ohhBSuiphievohsh"), true);
-        assert_eq!(has_lowercase("ahNefeesoofuNeih"), true);
-        assert_eq!(has_lowercase("eifeiNUuzSucheez"), true);
+        assert_eq!(has_lowercase("AECHOWMEEYUXEEHB"), false);
     }
 
     #[test]
     fn test_has_digits() {
         assert_eq!(has_digits("_rGp5W||XJ!N5z\"6"), true);
-        assert_eq!(has_digits("W?k*U0\"'z^43WMFi"), true);
-        assert_eq!(has_digits("+Te;S0fXS0;t4yU1"), true);
-        assert_eq!(has_digits("uHDN1zX$g[J>WH\\V"), true);
-        assert_eq!(has_digits("zMaZXu8>d}k8tlu3"), true);
+        assert_eq!(has_digits("W?k*UO\"'z^AEWMFi"), false);
     }
 
     #[test]
