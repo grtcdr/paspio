@@ -1,5 +1,3 @@
-mod core;
-
 fn main() {
     let args: Vec<String> = std::env::args().collect();
     if args.len() > 1 {
@@ -9,8 +7,8 @@ fn main() {
             return;
         }
 
-        let pool = core::get_pool(password);
-        let entropy = core::get_entropy(pool, password);
+        let pool = paspio::get_pool_size(password);
+        let entropy = paspio::get_entropy(pool, password);
 
         print!("Entropy: {:.2} bits", entropy);
     } else {
