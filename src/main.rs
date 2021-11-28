@@ -8,8 +8,7 @@ fn main() {
     }
 
     for password in &args {
-        let pool = paspio::get_pool_size(password);
-        let entropy = paspio::get_entropy(pool, password);
+        let entropy = paspio::get_entropy(password);
         println!("{:.2} bits", entropy);
     }
 }

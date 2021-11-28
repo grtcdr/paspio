@@ -8,7 +8,7 @@
 /// assert_eq!(has_digits("macaron"), false);
 /// assert_eq!(has_digits("m4c4r0n"), true);
 /// ```
-pub fn has_digits(pw: &str) -> bool {
+fn has_digits(pw: &str) -> bool {
     pw.chars().any(|x| x.is_digit(10))
 }
 
@@ -22,7 +22,7 @@ pub fn has_digits(pw: &str) -> bool {
 /// assert_eq!(has_lowercase("Soup"), true);
 /// assert_eq!(has_lowercase("SOUP"), false);
 /// ```
-pub fn has_lowercase(pw: &str) -> bool {
+fn has_lowercase(pw: &str) -> bool {
     pw.chars()
         .find(|&x| (97..=122).contains(&(x as u8)))
         .is_some()
@@ -38,7 +38,7 @@ pub fn has_lowercase(pw: &str) -> bool {
 /// assert_eq!(has_uppercase("chocolate"), false);
 /// assert_eq!(has_uppercase("CHOCOLATE"), true);
 /// ```
-pub fn has_uppercase(pw: &str) -> bool {
+fn has_uppercase(pw: &str) -> bool {
     pw.chars()
         .find(|&x| (65..=90).contains(&(x as u8)))
         .is_some()
@@ -54,7 +54,7 @@ pub fn has_uppercase(pw: &str) -> bool {
 /// assert_eq!(has_symbols("al dente"), true);
 /// assert_eq!(has_symbols("aldente"), false);
 /// ```
-pub fn has_symbols(pw: &str) -> bool {
+fn has_symbols(pw: &str) -> bool {
     pw.chars()
         .find(|&x| {
             let ascii = x as u8;
@@ -83,7 +83,7 @@ pub fn has_symbols(pw: &str) -> bool {
 /// let pool = get_pool_size(password);
 /// assert_eq!(pool, 52);
 /// ```
-pub fn get_pool_size(password: &str) -> usize {
+fn get_pool_size(password: &str) -> usize {
     let mut pool = 0;
 
     if has_digits(password) {
@@ -123,8 +123,8 @@ pub fn get_pool_size(password: &str) -> usize {
 /// let entropy = get_entropy(pool, password);
 /// assert_eq!(entropy.round(), 33f64);
 /// ```
-pub fn get_entropy(pool: usize, password: &str) -> f64 {
-    password.len() as f64 * (pool as f64).log2()
+pub fn get_entropy(password: &str) -> f64 {
+    password.len() as f64 * (get_pool_size(password) as f64).log2()
 }
 
 #[cfg(test)]
@@ -176,24 +176,21 @@ mod tests {
     #[test]
     fn test_calculate_entropy_with_upper_lower() {
         let password = "Cievabad";
-        let pool = get_pool_size(password);
-        let entropy = get_entropy(pool, password);
+        let entropy = get_entropy(password);
         assert_eq!(entropy.round(), 46f64);
     }
 
     #[test]
     fn test_calculate_entropy_with_symbols() {
         let password = "&;`_/`\\@";
-        let pool = get_pool_size(password);
-        let entropy = get_entropy(pool, password);
+        let entropy = get_entropy(password);
         assert_eq!(entropy.round(), 40f64);
     }
 
     #[test]
     fn test_calculate_entropy_with_digits() {
         let password = "02172341";
-        let pool = get_pool_size(password);
-        let entropy = get_entropy(pool, password);
+        let entropy = get_entropy(password);
         assert_eq!(entropy.round(), 27f64);
     }
 }
