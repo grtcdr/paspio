@@ -1,0 +1,41 @@
+name: paspio
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ubuntu-latest
+        include:
+          - rust: stable
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Install Rust
+        uses: hecrj/setup-rust-action@master
+        with:
+          rust-version: stable
+          components: rustfmt,clippy
+      - name: Check Formatting
+        run: cargo fmt --all -- --check
+        continue-on-error: true
+      - name: Clippy Linter
+        run: cargo clippy -- --no-deps -D clippy::all
+        continue-on-error: true
+      - name: Build
+        run: cargo build
+      - name: Test
+        run: cargo test
