@@ -11,21 +11,7 @@ fn main() {
 
         let mut pool = 0;
 
-        if core::has_digits(password) {
-            pool += 10;
-        }
-
-        if core::has_lowercase(password) {
-            pool += 26;
-        }
-
-        if core::has_uppercase(password) {
-            pool += 26;
-        }
-
-        if core::has_symbols(password) {
-            pool += 32;
-        }
+        core::calculate_pool(&mut pool, password);
 
         let entropy = password.len() as f64 * (pool as f64).log2();
 
@@ -36,3 +22,4 @@ fn main() {
         println!("No password provided.");
     }
 }
+

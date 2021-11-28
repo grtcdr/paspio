@@ -32,31 +32,52 @@ pub fn has_symbols(pw: &str) -> bool {
     re.is_match(pw)
 }
 
+pub fn calculate_pool(pool: &mut usize, password: &str) {
+    if has_digits(password) {
+        *pool += 10;
+    }
+
+    if has_lowercase(password) {
+        *pool += 26;
+    }
+
+    if has_uppercase(password) {
+        *pool += 26;
+    }
+
+    if has_symbols(password) {
+        *pool += 32;
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn test_has_symbols() {
-        let pw = String::from("4HIW5e!+MIzVpa5G");
-        assert_eq!(has_symbols(&pw), true);
+        assert_eq!(has_symbols("4HIW5e!+MIzVpa5G"), true);
     }
 
     #[test]
     fn test_has_uppercase() {
-        let pw = String::from("uYqqtZiEsifi2Mvu");
-        assert_eq!(has_uppercase(&pw), true);
+        assert_eq!(has_uppercase("uYqqtZiEsifi2Mvu"), true);
     }
 
     #[test]
     fn test_has_lowercase() {
-        let pw = String::from("VhHw654jxZXJ8Xtj");
-        assert_eq!(has_lowercase(&pw), true);
+        assert_eq!(has_lowercase( "VhHw654jxZXJ8Xtj"), true);
     }
 
     #[test]
     fn test_has_digits() {
-        let pw = String::from("tqvQLJZ7ESc6o10h");
-        assert_eq!(has_digits(&pw), true);
+        assert_eq!(has_digits( "tqvQLJZ7ESc6o10h"), true);
+    }
+
+    #[test]
+    fn test_calculate_pool() {
+        let mut pool = 0;
+        calculate_pool(&mut pool, ")H&7aXvaRt8TE@rj");
+        assert_eq!(pool, 94);
     }
 }
