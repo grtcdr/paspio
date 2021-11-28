@@ -1,4 +1,4 @@
-# paspio
+# paspio — pasvorta entropio
 
 A (naive) password entropy calculator.
 
@@ -16,3 +16,15 @@ cargo build
 ```
 paspio "liuLe9ohjub8hu2ie"
 ```
+
+### How does this calculator calculate entropy?
+
+It uses the same formula as [omnicalculator](https://www.omnicalculator.com/other/password-entropy).
+
+```bash
+Entropy = L * log2(R)
+```
+
+Where:
+- L is the length of the password.
+- R is the size of the pool of characters the password exists in.
