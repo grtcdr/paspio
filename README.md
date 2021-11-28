@@ -58,4 +58,4 @@ Where:
 | Lowercase latin letters | [a-z]    |    26     |
 | Uppercase latin letters | [A-Z]    |    26     |
 | Digits                  | [0-9]    |    10     |    
-| Symbols                 | \`~!@#$%^&*()-=_+[{]}\|;':",.<>/? | 32 |
+| Symbols                 | \`~!@#$%^&*()-=_+[{]}\|;' :",.<>/? | 33 |
