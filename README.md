@@ -26,5 +26,14 @@ Entropy = L * log2(R)
 ```
 
 Where:
-- L is the length of the password.
-- R is the size of the pool of characters the password exists in.
+- `L` is the length of the password.
+- `R` is the size of the pool of characters the password exists in.
+
+### Pools? What pools?
+
+| Pool                    | Elements | Pool size |
+| -----:                  | :------  | :-------: |
+| Lowercase latin letters | [a-z]    |    26     |
+| Uppercase latin letters | [A-Z]    |    26     |
+| Digits                  | [0-9]    |    10     |    
+| Symbols                 | \`~!@#$%^&*()-=_+[{]}\|;':",.<>/? | 32 |
