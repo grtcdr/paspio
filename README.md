@@ -17,7 +17,7 @@ paspio "liuLe9ohjub8hu2ie"
 ```
 
 If you're using it in your own program, add the following to your project's
-Cargo.toml and have a look at the [documentation](https://docs.rs/paspio/latest/pasio/) while you're at it.
+Cargo.toml and have a look at the [documentation](https://docs.rs/paspio/latest/paspio/) while you're at it.
 
 ```
 paspio = "0.2"
