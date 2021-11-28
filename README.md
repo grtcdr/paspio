@@ -3,15 +3,21 @@
 A (naive) password entropy calculator. It is not intended or designed to be a
 measure of password strength, please refrain from using it as such.
 
-### Installation
+## Usage
 
-#### crates.io
+```
+paspio "liuLe9ohjub8hu2ie"
+```
+
+## Installation
+
+- [crates.io](https://crates.io/crates/paspio)
 
 ```
 cargo install paspio
 ```
 
-#### AUR
+- [AUR](https://aur.archlinux.org/packages/paspio-git/)
 
 ```
 git clone https://aur.archlinux.org/paspio-git.git
@@ -19,7 +25,7 @@ cd paspio-git
 makepkg -si
 ```
 
-#### Building from source
+- Building from source
 
 ```bash
 git clone https://github.com/grtcdr/paspio
@@ -28,11 +34,7 @@ cargo build
 # You should move it to your PATH now...
 ```
 
-### Usage
-
-```
-paspio "liuLe9ohjub8hu2ie"
-```
+## FAQ
 
 ### How does this calculator calculate entropy?
 
@@ -47,7 +49,7 @@ Where:
 - `L` is the length of the password.
 - `R` is the size of the pool of characters the password exists in.
 
-### Pools? What pools?
+### Pool? What pool?
 
 | Pool                    | Elements | Pool size |
 | -----:                  | :------  | :-------: |
