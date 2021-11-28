@@ -1,27 +1,9 @@
 /// Returns true if a given password contains at least one digit.
-///
-/// # Examples
-///
-/// ```
-/// use paspio::has_digits;
-///
-/// assert_eq!(has_digits("macaron"), false);
-/// assert_eq!(has_digits("m4c4r0n"), true);
-/// ```
 fn has_digits(pw: &str) -> bool {
     pw.chars().any(|x| x.is_digit(10))
 }
 
 /// Returns true if a given password contains at least one lowercase letter.
-///
-/// # Examples
-///
-/// ```
-/// use paspio::has_lowercase;
-///
-/// assert_eq!(has_lowercase("Soup"), true);
-/// assert_eq!(has_lowercase("SOUP"), false);
-/// ```
 fn has_lowercase(pw: &str) -> bool {
     pw.chars()
         .find(|&x| (97..=122).contains(&(x as u8)))
@@ -29,15 +11,6 @@ fn has_lowercase(pw: &str) -> bool {
 }
 
 /// Returns true if a given password contains at least one uppercase letter.
-///
-/// # Examples
-///
-/// ```
-/// use paspio::has_uppercase;
-///
-/// assert_eq!(has_uppercase("chocolate"), false);
-/// assert_eq!(has_uppercase("CHOCOLATE"), true);
-/// ```
 fn has_uppercase(pw: &str) -> bool {
     pw.chars()
         .find(|&x| (65..=90).contains(&(x as u8)))
@@ -45,15 +18,6 @@ fn has_uppercase(pw: &str) -> bool {
 }
 
 /// Returns true if a given password contains at least one symbol.
-///
-/// # Examples
-///
-/// ```
-/// use paspio::has_symbols;
-///
-/// assert_eq!(has_symbols("al dente"), true);
-/// assert_eq!(has_symbols("aldente"), false);
-/// ```
 fn has_symbols(pw: &str) -> bool {
     pw.chars()
         .find(|&x| {
@@ -73,16 +37,6 @@ fn has_symbols(pw: &str) -> bool {
 /// - [A-Z]
 ///
 /// **Pool size** of `Pepperoni` is 26 + 26 = 52
-///
-/// # Example
-///
-/// ```
-/// use paspio::get_pool_size;
-///
-/// let password = "Pepperoni";
-/// let pool = get_pool_size(password);
-/// assert_eq!(pool, 52);
-/// ```
 fn get_pool_size(password: &str) -> usize {
     let mut pool = 0;
 
