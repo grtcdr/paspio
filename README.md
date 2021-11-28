@@ -40,9 +40,6 @@ cargo build
 
 ### How does this calculator calculate entropy?
 
-It uses the same formula as
-[omnicalculator](https://www.omnicalculator.com/other/password-entropy).
-
 ```bash
 Entropy = L * log2(R)
 ```
@@ -53,9 +50,9 @@ Where:
 
 ### Pool? What pool?
 
-| Pool                    | Elements | Pool size |
-| -----:                  | :------  | :-------: |
-| Lowercase latin letters | [a-z]    |    26     |
-| Uppercase latin letters | [A-Z]    |    26     |
-| Digits                  | [0-9]    |    10     |    
-| Symbols                 | \`~!@#$%^&*()-=_+[{]}\|;' :",.<>/? | 33 |
+| Pool                    | Elements | Pool size | Notes |
+| -----:                  | :------  | :-------: | :---- |
+| Lowercase latin letters | [a-z]    |    26     |       |
+| Uppercase latin letters | [A-Z]    |    26     |       |
+| Digits                  | [0-9]    |    10     |       |
+| Symbols                 | \`~!@#$%^&*()-=_+[{]}\|;' :",.<>/? | 33 | Whitespace is included |
