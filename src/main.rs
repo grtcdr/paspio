@@ -10,10 +10,9 @@ fn main() {
         }
 
         let mut pool = 0;
-
+        let mut entropy = 0f64;
         core::calculate_pool(&mut pool, password);
-
-        let entropy = password.len() as f64 * (pool as f64).log2();
+        core::calculate_entropy(&mut entropy, &pool, password);
 
         println!("Entropy: {:.2} bits", entropy);
         return;
