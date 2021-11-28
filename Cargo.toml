@@ -1,0 +1,13 @@
+[package]
+name = "paspio"
+version = "0.1.0"
+edition = "2021"
+authors = "Aziz Ben Ali"
+description = "Password entropy calculator."
+keywords = ["password", "entropy", "utility"]
+repository = "https://github.com/grtcdr/paspio"
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
+regex = "1.5.4"
