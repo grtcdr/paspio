@@ -9,9 +9,6 @@ repository = "https://github.com/grtcdr/paspio"
 license = "MIT"
 readme = "README.md"
 
-[dependencies]
-regex = "1.5.4"
-
 [profile.release]
 opt-level = 3
 debug = false
