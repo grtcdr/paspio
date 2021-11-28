@@ -11,19 +11,19 @@ fn main() {
 
         let mut pool = 0;
 
-        if core::has_digits(&password) {
+        if core::has_digits(password) {
             pool += 10;
         }
 
-        if core::has_lowercase(&password) {
+        if core::has_lowercase(password) {
             pool += 26;
         }
 
-        if core::has_uppercase(&password) {
+        if core::has_uppercase(password) {
             pool += 26;
         }
 
-        if core::has_symbols(&password) {
+        if core::has_symbols(password) {
             pool += 32;
         }
 

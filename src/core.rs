@@ -1,6 +1,6 @@
 use regex::Regex;
 
-pub fn has_digits(pw: &String) -> bool {
+pub fn has_digits(pw: &str) -> bool {
     if pw.chars().any(|x| x.is_digit(10)) {
         return true;
     }
@@ -9,7 +9,7 @@ pub fn has_digits(pw: &String) -> bool {
     }
 }
 
-pub fn has_lowercase(pw: &String) -> bool {
+pub fn has_lowercase(pw: &str) -> bool {
     if pw.chars().any(|x| x.is_lowercase()) {
         return true;
     }
@@ -18,7 +18,7 @@ pub fn has_lowercase(pw: &String) -> bool {
     }
 }
 
-pub fn has_uppercase(pw: &String) -> bool {
+pub fn has_uppercase(pw: &str) -> bool {
     if pw.chars().any(|x| x.is_uppercase()) {
         return true;
     }
@@ -27,7 +27,7 @@ pub fn has_uppercase(pw: &String) -> bool {
     }
 }
 
-pub fn has_symbols(pw: &String) -> bool {
+pub fn has_symbols(pw: &str) -> bool {
     let re = Regex::new(r#"["'`~!@#$%^&*()-_+=[{]}\|;:,.<>/?]"#).unwrap();
     re.is_match(pw)
 }
