@@ -7,8 +7,22 @@ used in conjuction with other tools.
 
 ## Usage
 
-```
+paspio can act as both a _library_ and a _command-line program_.
+
+If you're intending on using the program, run the following in your terminal:
+
+```bash
+# Pass one or more passwords to paspio to get its entropy
 paspio "liuLe9ohjub8hu2ie"
+```
+
+If you're using it in your own program, add the following to your project's
+Cargo.toml and have a look at the [documentation](https://docs.rs/paspio/0.2.0/paspio/) while you're at it.
+
+```
+paspio = "0.2.0"
+```
+
 ```
 
 ## Installation
