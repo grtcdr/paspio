@@ -1,7 +1,9 @@
 # paspio — pasvorta entropio
 
-A (naive) password entropy calculator. It is not intended or designed to be a
-measure of password strength, please refrain from using it as such.
+A (naive) password entropy calculator. 
+
+Refrain from using this as a sole measure of password strength, it **should** be
+used in conjuction with other tools.
 
 ## Usage
 
