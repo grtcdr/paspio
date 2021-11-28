@@ -1,20 +1,11 @@
 pub fn has_digits(pw: &str) -> bool {
-    if pw.chars().any(|x| x.is_digit(10)) {
-        return true;
-    }
-    {
-        false
-    }
+    pw.chars().any(|x| x.is_digit(10))
 }
 
+/// Returns true if the given password contains at least one lowercase letter.
 pub fn has_lowercase(pw: &str) -> bool {
     let lower = pw.chars().find(|&x| {
-        let ascii = x as u8;
-        if (97..=122).contains(&ascii) {
-            return true;
-        }
-
-        false
+        (97..=122).contains(&(x as u8))
     });
 
     if lower.is_some() {
@@ -24,14 +15,10 @@ pub fn has_lowercase(pw: &str) -> bool {
     false
 }
 
+/// Returns true if the given password contains at least one uppercase letter.
 pub fn has_uppercase(pw: &str) -> bool {
     let lower = pw.chars().find(|&x| {
-        let ascii = x as u8;
-        if (65..=90).contains(&ascii) {
-            return true;
-        }
-
-        false
+        (65..=90).contains(&(x as u8))
     });
 
     if lower.is_some() {
@@ -41,6 +28,7 @@ pub fn has_uppercase(pw: &str) -> bool {
     false
 }
 
+/// Returns true if the given password contains at least one symbol.
 pub fn has_symbols(pw: &str) -> bool {
     let lower = pw.chars().find(|&x| {
         let ascii = x as u8;
