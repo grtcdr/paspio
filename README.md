@@ -49,6 +49,10 @@ cd paspio
 cargo build --release
 ```
 
+### Prebuilt binaries
+
+Prebuilt binaries for _Windows_, _Linux_ and _macOS_ are available in the [releases page](https://github.com/grtcdr/paspio/releases/).
+
 ## FAQ
 
 ### What is this tool useful for?
