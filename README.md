@@ -1,8 +1,12 @@
 # paspio
 
+[![build](https://img.shields.io/github/workflow/status/grtcdr/paspio/paspio)](https://github.com/grtcdr/paspio/actions)
+[![docs](https://img.shields.io/docsrs/paspio)](https://docs.rs/paspio/latest/paspio)
+[![version](https://img.shields.io/crates/v/paspio)](https://crates.io/crates/paspio)
+
 __paspio__, short for _pasvorta entropio_, is a password entropy calculator/library.
 
-Refrain from using this as a sole measure of password strength, it **should** be
+Please refrain from using this as a **sole** measure of password strength, it **should** be
 used in conjuction with other security tools, e.g. `cracklib-check`.
 
 ## Usage
@@ -14,8 +18,8 @@ If you're intending on using __paspio__ as a program, run the following in your 
 paspio "liuLe9ohjub8hu2ie"
 ```
 
-If you're wishing to use it in your own project(s), i.e. as a library, add the following to your project's
-`Cargo.toml` and have a look at the [documentation](https://docs.rs/paspio/latest/paspio/) while you're at it.
+If you're wishing to use it in your own project(s), i.e. as a library, then add the following to your project's
+`Cargo.toml`:
 
 ```
 paspio = "0.2"
@@ -23,13 +27,13 @@ paspio = "0.2"
 
 ## Installation
 
-- [Cargo](https://crates.io/crates/paspio):
+#### [Ca](https://crates.io/crates/paspio/)rgo
 
 ```
 cargo install paspio
 ```
 
-- [Arch User Repository](https://aur.archlinux.org/packages/paspio-git/):
+#### [Ar](https://aur.archlinux.org/packages/paspio-git/)ch User Repository
 
 ```
 git clone https://aur.archlinux.org/paspio-git.git
@@ -37,7 +41,7 @@ cd paspio-git
 makepkg -si
 ```
 
-- Building from source:
+#### Building from source
 
 ```bash
 git clone https://github.com/grtcdr/paspio
@@ -46,6 +50,15 @@ cargo build --release
 ```
 
 ## FAQ
+
+### What is this tool useful for?
+
+Ever wanted to verify the strength of your passwords, but felt slightly
+uncomfortable doing so over the internet?
+
+If you answered __yes__, then you're looking at the right tool. After all, it's the
+only reason I created it; to check how random my passwrods are, but
+_locally_.
 
 ### What is entropy?
 
