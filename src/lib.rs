@@ -5,25 +5,22 @@ fn has_digits(pw: &str) -> bool {
 
 /// Returns true if a given password contains at least one lowercase letter.
 fn has_lowercase(pw: &str) -> bool {
-    pw.chars()
-        .any(|x| (97..=122).contains(&(x as u8)))
+    pw.chars().any(|x| (97..=122).contains(&(x as u8)))
 }
 
 /// Returns true if a given password contains at least one uppercase letter.
 fn has_uppercase(pw: &str) -> bool {
-    pw.chars()
-        .any(|x| (65..=90).contains(&(x as u8)))
+    pw.chars().any(|x| (65..=90).contains(&(x as u8)))
 }
 
 /// Returns true if a given password contains at least one symbol.
 fn has_symbols(pw: &str) -> bool {
-    pw.chars()
-        .any(|x| {
-            (32..=47).contains(&(x as u8))
-                || (58..=64).contains(&(x as u8))
-                || (91..=96).contains(&(x as u8))
-                || (123..=126).contains(&(x as u8))
-        })
+    pw.chars().any(|x| {
+        (32..=47).contains(&(x as u8))
+            || (58..=64).contains(&(x as u8))
+            || (91..=96).contains(&(x as u8))
+            || (123..=126).contains(&(x as u8))
+    })
 }
 
 /// Returns the pool size of a given password, e.g.:
@@ -62,7 +59,7 @@ fn get_pool_size(password: &str) -> usize {
 /// Where:
 /// - `L` is the length of the password.
 /// - `R` is the pool size of the password.
-/// 
+///
 /// # Example
 ///
 /// ```
