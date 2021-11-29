@@ -6,28 +6,24 @@ fn has_digits(pw: &str) -> bool {
 /// Returns true if a given password contains at least one lowercase letter.
 fn has_lowercase(pw: &str) -> bool {
     pw.chars()
-        .find(|&x| (97..=122).contains(&(x as u8)))
-        .is_some()
+        .any(|x| (97..=122).contains(&(x as u8)))
 }
 
 /// Returns true if a given password contains at least one uppercase letter.
 fn has_uppercase(pw: &str) -> bool {
     pw.chars()
-        .find(|&x| (65..=90).contains(&(x as u8)))
-        .is_some()
+        .any(|x| (65..=90).contains(&(x as u8)))
 }
 
 /// Returns true if a given password contains at least one symbol.
 fn has_symbols(pw: &str) -> bool {
     pw.chars()
-        .find(|&x| {
-            let ascii = x as u8;
-            (32..=47).contains(&ascii)
-                || (58..=64).contains(&ascii)
-                || (91..=96).contains(&ascii)
-                || (123..=126).contains(&ascii)
+        .any(|x| {
+            (32..=47).contains(&(x as u8))
+                || (58..=64).contains(&(x as u8))
+                || (91..=96).contains(&(x as u8))
+                || (123..=126).contains(&(x as u8))
         })
-        .is_some()
 }
 
 /// Returns the pool size of a given password, e.g.:
