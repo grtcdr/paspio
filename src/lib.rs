@@ -71,7 +71,7 @@ fn get_pool_size(password: &str) -> usize {
 ///
 /// ```
 /// let entropy = paspio::get_entropy("quain1aeLu");
-/// assert_eq!(entropy.round(), 33f64); // in bits
+/// assert_eq!(entropy.round(), 60f64); // in bits
 /// ```
 pub fn get_entropy(password: &str) -> f64 {
     password.len() as f64 * (get_pool_size(password) as f64).log2()
