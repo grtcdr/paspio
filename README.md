@@ -43,7 +43,7 @@ makepkg -si
 
 ### Building from source
 
-```bash
+```
 git clone https://github.com/grtcdr/paspio
 cd paspio
 cargo build --release
