@@ -20,21 +20,21 @@ jobs:
           - os: ubuntu-latest
             name: Linux
             target: x86_64-unknown-linux-gnu
-            artifact_name: target/x86_64-unknown-linux-gnu/release/macchina
+            artifact_name: target/x86_64-unknown-linux-gnu/release/paspio
             release_name: paspio-linux-x86_64
             strip: true
 
           - os: macos-latest
             name: macOS
             target: x86_64-apple-darwin
-            artifact_name: target/x86_64-apple-darwin/release/macchina
+            artifact_name: target/x86_64-apple-darwin/release/paspio
             release_name: paspio-macos-x86_64
             strip: true
 
           - os: windows-latest
             name: Windows
             target: x86_64-pc-windows-msvc
-            artifact_name: target/x86_64-pc-windows-msvc/release/macchina.exe
+            artifact_name: target/x86_64-pc-windows-msvc/release/paspio.exe
             release_name: paspio-windows-x86_64.exe
             strip: true
 
