@@ -89,7 +89,7 @@ mod tests {
     #[test]
     fn test_has_lowercase() {
         assert_eq!(has_lowercase("baeAKaaWeshAjoje"), true);
-        assert_eq!(has_lowercase("AECHOWMEEYUXEEHB"), false);
+        assert_eq!(has_lowercase("L9S3R@P,\"0{1EA'C"), false);
     }
 
     #[test]

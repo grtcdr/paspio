@@ -3,7 +3,7 @@ fn main() {
     args.remove(0);
 
     if args.is_empty() {
-        print!("No password provided.");
+        print!("No passwords provided.");
         return;
     }
 
