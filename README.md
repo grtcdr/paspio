@@ -1,23 +1,21 @@
-# paspio — pasvorta entropio
+# paspio
 
-A (naive) password entropy calculator. 
+__paspio__, short for _pasvorta entropio_, is a password entropy calculator/library.
 
 Refrain from using this as a sole measure of password strength, it **should** be
-used in conjuction with other tools.
+used in conjuction with other security tools, e.g. `cracklib-check`.
 
 ## Usage
 
-paspio can act as both a _library_ and a _command-line program_.
-
-If you're intending on using the program, run the following in your terminal:
+If you're intending on using __paspio__ as a program, run the following in your terminal:
 
 ```bash
 # Pass one or more passwords to paspio to get their entropy
 paspio "liuLe9ohjub8hu2ie"
 ```
 
-If you're using it in your own program, add the following to your project's
-Cargo.toml and have a look at the [documentation](https://docs.rs/paspio/latest/paspio/) while you're at it.
+If you're wishing to use it in your own project(s), i.e. as a library, add the following to your project's
+`Cargo.toml` and have a look at the [documentation](https://docs.rs/paspio/latest/paspio/) while you're at it.
 
 ```
 paspio = "0.2"
@@ -25,13 +23,13 @@ paspio = "0.2"
 
 ## Installation
 
-- [crates.io](https://crates.io/crates/paspio)
+- [Cargo](https://crates.io/crates/paspio):
 
 ```
 cargo install paspio
 ```
 
-- [AUR](https://aur.archlinux.org/packages/paspio-git/)
+- [Arch User Repository](https://aur.archlinux.org/packages/paspio-git/):
 
 ```
 git clone https://aur.archlinux.org/paspio-git.git
@@ -39,16 +37,20 @@ cd paspio-git
 makepkg -si
 ```
 
-- Building from source
+- Building from source:
 
 ```bash
 git clone https://github.com/grtcdr/paspio
 cd paspio
-cargo build
-# You should move it to your PATH now...
+cargo build --release
 ```
 
 ## FAQ
+
+### What is entropy?
+
+[Entropy](https://en.wikipedia.org/wiki/Password_strength#Entropy_as_a_measure_of_password_strength)
+measures how unpredictable a password is.
 
 ### How does this calculator calculate entropy?
 
