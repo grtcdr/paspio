@@ -27,13 +27,13 @@ paspio = "0.2"
 
 ## Installation
 
-#### [Ca](https://crates.io/crates/paspio/)rgo
+### [Ca](https://crates.io/crates/paspio/)rgo
 
 ```
 cargo install paspio
 ```
 
-#### [Ar](https://aur.archlinux.org/packages/paspio-git/)ch User Repository
+### [Ar](https://aur.archlinux.org/packages/paspio-git/)ch User Repository
 
 ```
 git clone https://aur.archlinux.org/paspio-git.git
@@ -41,7 +41,7 @@ cd paspio-git
 makepkg -si
 ```
 
-#### Building from source
+### Building from source
 
 ```bash
 git clone https://github.com/grtcdr/paspio
