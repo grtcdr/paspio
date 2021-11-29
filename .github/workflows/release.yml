@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    name: ${{ matrix.name }} (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - x86_64-unknown-linux-gnu
+          - x86_64-apple-darwin
+          - x86_64-pc-windows-msvc
+        include:
+          - os: ubuntu-latest
+            name: Linux
+            target: x86_64-unknown-linux-gnu
+            artifact_name: target/x86_64-unknown-linux-gnu/release/macchina
+            release_name: paspio-linux-x86_64
+            strip: true
+
+          - os: macos-latest
+            name: macOS
+            target: x86_64-apple-darwin
+            artifact_name: target/x86_64-apple-darwin/release/macchina
+            release_name: paspio-macos-x86_64
+            strip: true
+
+          - os: windows-latest
+            name: Windows
+            target: x86_64-pc-windows-msvc
+            artifact_name: target/x86_64-pc-windows-msvc/release/macchina.exe
+            release_name: paspio-windows-x86_64.exe
+            strip: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Bootstrap
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: ${{ matrix.target }}
+
+      - name: Build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --target=${{ matrix.target }} --release
+          use-cross: ${{ matrix.cross }}
+
+      - name: Move
+        run: mv ${{ matrix.artifact_name }} ${{ matrix.release_name }}
+
+      - name: Upload
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ matrix.release_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

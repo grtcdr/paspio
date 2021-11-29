@@ -1,4 +1,4 @@
-name: paspio
+name: CI
 
 on:
   push:
@@ -20,19 +20,19 @@ jobs:
         include:
           - rust: stable
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v1
         with:
           fetch-depth: 1
-      - name: Install Rust
+      - name: Bootstrap
         uses: hecrj/setup-rust-action@master
         with:
           rust-version: stable
           components: rustfmt,clippy
-      - name: Check formatting
+      - name: Formatting
         run: cargo fmt --all -- --check
         continue-on-error: true
-      - name: Clippy linter
+      - name: Linter
         run: cargo clippy -- --no-deps -D clippy::all
         continue-on-error: true
       - name: Build
