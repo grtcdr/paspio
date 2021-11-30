@@ -1,29 +1,3 @@
-/// Returns true if a given password contains at least one digit.
-fn has_digits(pw: &str) -> bool {
-    pw.chars().any(|x| x.is_digit(10))
-}
-
-/// Returns true if a given password contains at least one lowercase letter.
-fn has_lowercase(pw: &str) -> bool {
-    pw.chars().any(|x| (97..=122).contains(&(x as u8)))
-}
-
-/// Returns true if a given password contains at least one uppercase letter.
-fn has_uppercase(pw: &str) -> bool {
-    pw.chars().any(|x| (65..=90).contains(&(x as u8)))
-}
-
-/// Returns true if a given password contains at least one symbol.
-fn has_symbols(pw: &str) -> bool {
-    pw.chars().any(|x| {
-        let as_ascii = &(x as u8);
-        (32..=47).contains(as_ascii)
-            || (58..=64).contains(as_ascii)
-            || (91..=96).contains(as_ascii)
-            || (123..=126).contains(as_ascii)
-    })
-}
-
 /// Returns the pool size of a given password, e.g.:
 ///
 /// **Pool** of `Pepperoni` is:
@@ -34,19 +8,22 @@ fn has_symbols(pw: &str) -> bool {
 fn get_pool_size(password: &str) -> usize {
     let mut pool = 0;
 
-    if has_digits(password) {
+    if password.chars().any(|c| c.is_ascii_digit()) {
         pool += 10;
     }
 
-    if has_lowercase(password) {
+    if password.chars().any(|c| c.is_ascii_lowercase()) {
         pool += 26;
     }
 
-    if has_uppercase(password) {
+    if password.chars().any(|c| c.is_ascii_uppercase()) {
         pool += 26;
     }
 
-    if has_symbols(password) {
+    if password
+        .chars()
+        .any(|c| c.is_ascii_punctuation() || c.is_ascii_whitespace())
+    {
         pool += 33;
     }
 
@@ -74,30 +51,6 @@ pub fn get_entropy(password: &str) -> f64 {
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn test_has_symbols() {
-        assert_eq!(has_symbols("JGA7Y#ELWX,8$QB3"), true);
-        assert_eq!(has_symbols("uVR28EX2caF95jjM"), false);
-    }
-
-    #[test]
-    fn test_has_uppercase() {
-        assert_eq!(has_uppercase(".xNDoUKZM2X\"M.tJ"), true);
-        assert_eq!(has_uppercase("{w:cn8t79lslkb|0"), false);
-    }
-
-    #[test]
-    fn test_has_lowercase() {
-        assert_eq!(has_lowercase("baeAKaaWeshAjoje"), true);
-        assert_eq!(has_lowercase("L9S3R@P,\"0{1EA'C"), false);
-    }
-
-    #[test]
-    fn test_has_digits() {
-        assert_eq!(has_digits("_rGp5W||XJ!N5z\"6"), true);
-        assert_eq!(has_digits("W?k*UO\"'z^AEWMFi"), false);
-    }
 
     #[test]
     fn test_calculate_pool_with_digits() {
