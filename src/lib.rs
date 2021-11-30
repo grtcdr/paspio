@@ -16,10 +16,11 @@ fn has_uppercase(pw: &str) -> bool {
 /// Returns true if a given password contains at least one symbol.
 fn has_symbols(pw: &str) -> bool {
     pw.chars().any(|x| {
-        (32..=47).contains(&(x as u8))
-            || (58..=64).contains(&(x as u8))
-            || (91..=96).contains(&(x as u8))
-            || (123..=126).contains(&(x as u8))
+        let as_ascii = &(x as u8);
+        (32..=47).contains(as_ascii)
+            || (58..=64).contains(as_ascii)
+            || (91..=96).contains(as_ascii)
+            || (123..=126).contains(as_ascii)
     })
 }
 
