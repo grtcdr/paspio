@@ -53,41 +53,72 @@ mod tests {
     use super::*;
 
     #[test]
+    fn test_calculate_pool_with_upper() {
+        let password = "AOKEETHI";
+        let pool = get_pool_size(password);
+        assert_eq!(pool, 26);
+    }
+
+    #[test]
+    fn test_calculate_pool_with_lower() {
+        let password = "aokeethi";
+        let pool = get_pool_size(password);
+        assert_eq!(pool, 26);
+    }
+
+    #[test]
     fn test_calculate_pool_with_digits() {
-        let pool = get_pool_size("12983791");
+        let password = "12983791";
+        let pool = get_pool_size(password);
         assert_eq!(pool, 10);
     }
 
     #[test]
-    fn test_calculate_pool_with_upper_lower() {
-        let pool = get_pool_size("Aokeethi");
-        assert_eq!(pool, 52);
-    }
-
-    #[test]
     fn test_calculate_pool_with_symbols() {
-        let pool = get_pool_size("-_+\\`%{]");
+        let password = "-_+\\`%{]";
+        let pool = get_pool_size(password);
         assert_eq!(pool, 33);
     }
 
     #[test]
-    fn test_calculate_entropy_with_upper_lower() {
-        let password = "Cievabad";
-        let entropy = get_entropy(password);
-        assert_eq!(entropy.round(), 46f64);
+    fn test_calculate_pool_with_upper_lower_digits_symbols() {
+        let password = "bO9I9=./<a:K4}~N";
+        let pool = get_pool_size(password);
+        assert_eq!(pool, 95);
     }
 
     #[test]
-    fn test_calculate_entropy_with_symbols() {
-        let password = "&;`_/`\\@";
+    fn test_calculate_entropy_with_upper() {
+        let password = "TAGXEEDAIE";
         let entropy = get_entropy(password);
-        assert_eq!(entropy.round(), 40f64);
+        assert_eq!(entropy.round(), 47f64);
+    }
+
+    #[test]
+    fn test_calculate_entropy_with_lower() {
+        let password = "cievabadop";
+        let entropy = get_entropy(password);
+        assert_eq!(entropy.round(), 47f64);
     }
 
     #[test]
     fn test_calculate_entropy_with_digits() {
-        let password = "02172341";
+        let password = "0217234181";
         let entropy = get_entropy(password);
-        assert_eq!(entropy.round(), 27f64);
+        assert_eq!(entropy.round(), 33f64);
+    }
+
+    #[test]
+    fn test_calculate_entropy_with_symbols() {
+        let password = "&;`_/`\\@$#";
+        let entropy = get_entropy(password);
+        assert_eq!(entropy.round(), 50f64);
+    }
+
+    #[test]
+    fn test_calculate_entropy_with_upper_lower_digits_symbols() {
+        let password = "zFOuR@/nb9";
+        let entropy = get_entropy(password);
+        assert_eq!(entropy.round(), 66f64);
     }
 }
