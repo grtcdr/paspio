@@ -81,9 +81,9 @@ Where:
 - `R` is the size of the pool of characters the password exists in.
 
 ### Pool? What pool?
-| Pool                    | Elements                         | Pool size | Notes                  |
-| -----:                  | :------                          | :-------: | :----                  |
-| Lowercase latin letters | [a-z]                            | 26        |                        |
-| Uppercase latin letters | [A-Z]                            | 26        |                        |
-| Digits                  | [0-9]                            | 10        |                        |
-| Symbols                 | !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ | 33        | Whitespace is included |
+| Pool                    | Elements                        | Pool size | Notes                  |
+| -----:                  | :------                         | :-------: | :----                  |
+| Lowercase latin letters | [a-z]                           | 26        |                        |
+| Uppercase latin letters | [A-Z]                           | 26        |                        |
+| Digits                  | [0-9]                           | 10        |                        |
+| Symbols                 | !"#$%&'()*+,-./:;<=>?@[\]^_`{}~ | 33        | Whitespace and pipe symbol included |
