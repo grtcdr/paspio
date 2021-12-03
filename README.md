@@ -62,7 +62,7 @@ Ever wanted to verify the strength of your passwords, but felt slightly
 uncomfortable doing so over the internet?
 
 If you answered __yes__, then you're looking at the right tool. After all, it's
-the only reason I created it; to check how random my passwrods are, but
+the only reason I created it; to check how random my passwords are, but
 _locally_.
 
 ### What is entropy?
