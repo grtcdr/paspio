@@ -51,7 +51,8 @@ cargo build --release
 
 ### Prebuilt binaries
 
-Prebuilt binaries for _Windows_, _Linux_ and _macOS_ are available in the [releases page](https://github.com/grtcdr/paspio/releases/).
+Prebuilt binaries for _Windows_, _Linux_ and _macOS_ are available in the
+[releases page](https://github.com/grtcdr/paspio/releases/).
 
 ## FAQ
 
@@ -60,8 +61,8 @@ Prebuilt binaries for _Windows_, _Linux_ and _macOS_ are available in the [relea
 Ever wanted to verify the strength of your passwords, but felt slightly
 uncomfortable doing so over the internet?
 
-If you answered __yes__, then you're looking at the right tool. After all, it's the
-only reason I created it; to check how random my passwrods are, but
+If you answered __yes__, then you're looking at the right tool. After all, it's
+the only reason I created it; to check how random my passwrods are, but
 _locally_.
 
 ### What is entropy?
@@ -80,10 +81,9 @@ Where:
 - `R` is the size of the pool of characters the password exists in.
 
 ### Pool? What pool?
-
-| Pool                    | Elements | Pool size | Notes |
-| -----:                  | :------  | :-------: | :---- |
-| Lowercase latin letters | [a-z]    |    26     |       |
-| Uppercase latin letters | [A-Z]    |    26     |       |
-| Digits                  | [0-9]    |    10     |       |
-| Symbols                 | \`~!@#$%^&*()-=_+[{]}\|;' :",.<>/? | 33 | Whitespace is included |
+| Pool                    | Elements                         | Pool size | Notes                  |
+| -----:                  | :------                          | :-------: | :----                  |
+| Lowercase latin letters | [a-z]                            | 26        |                        |
+| Uppercase latin letters | [A-Z]                            | 26        |                        |
+| Digits                  | [0-9]                            | 10        |                        |
+| Symbols                 | !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ | 33        | Whitespace is included |
